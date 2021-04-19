@@ -103,6 +103,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         if(!result) {
             Toast.makeText(this, "Enter All Details Correctly!", Toast.LENGTH_SHORT).show();
         }
+        if(E1.getText().toString().isEmpty() || E2.getText().toString().isEmpty() )
+        {
+            result = false;
+            Toast.makeText(this, "Enter All Details Correctly!", Toast.LENGTH_SHORT).show();
+
+        }
 
         return result;
     }
