@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             EditText e2 = (EditText)view.findViewById(R.id.duration);
             EditText e3 = (EditText)view.findViewById(R.id.rating);
 
+            if(e1.getText().toString().isEmpty() || e2.getText().toString().isEmpty() || e3.getText().toString().isEmpty())
+            {
+                result = false;
+                break;
+            }
+
             int q = Integer.parseInt(e1.getText().toString());
             float d = Float.parseFloat(e2.getText().toString());
             int r = Integer.parseInt(e3.getText().toString());
@@ -77,6 +84,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             calculate += ((q * d * r) * 30)/1000;
 
 
+        }
+        if(!result) {
+            Toast.makeText(this, "Enter All Details Correctly!", Toast.LENGTH_SHORT).show();
         }
         return result;
     }
